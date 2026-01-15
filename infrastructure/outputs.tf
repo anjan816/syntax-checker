@@ -25,3 +25,18 @@ output "cloudwatch_alarm_name" {
   value       = module.cloudwatch.cloudwatch_alarm_name
   
 }
+
+# output "alb_dns" {
+#   description = "the elb"
+#   value = module.elb.alb_dns
+# }
+
+output "ebs_volume_id" {
+  description = "EBS Volume ID"
+  value       = module.ebs.volume_id
+}
+
+output "ebs_volume_name" {
+  description = "EBS Volume Name"
+  value       = module.ebs.volume_name
+}

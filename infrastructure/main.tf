@@ -18,3 +18,14 @@ module "cloudwatch" {
   source       = "./modules/cloudwatch"
   instance_id = module.ec2.instance_id
 }
+
+module "ebs" {
+  source      = "./modules/ebs"
+  instance_id = module.ec2.instance_id
+  availability_zone = module.ec2.availability_zone
+}
+
+# module "elb" {
+#   source      = "./modules/elb"
+#   instance_id = module.ec2.availability_zone
+# }
