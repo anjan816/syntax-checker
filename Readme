@@ -132,7 +132,7 @@ EBS|More storage |
 syntax-checker/
 ├── app/
 ├── Dockerfile
-|── lib
+|── lib/
 ├── Jenkinsfile
 ├── package.json
 ├── infrastructure/
