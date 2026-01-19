@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = "syntax-checker"
-        CONTAINER_NAME = "syntax-checker-container"
+        CONTAINER_NAME = "syntax-checker"
     }
 
     stages {
