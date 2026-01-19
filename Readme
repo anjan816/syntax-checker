@@ -139,7 +139,7 @@ syntax-checker/
 └── README.md
 ```
 ---
-## create .env.local file**
+## **create .env.local file**
 AWS RDS values
 
 ```
@@ -153,7 +153,7 @@ DB_NAME=<database name>
 
 ## **Project Execution Steps**
 
-This section explains how to provision infrastructure and deploy the **Syntax Checker** application using **Terraform, AWS EC2, Jenkins, and Docker**.
+This section explains how to provision infrastructure and deploy the **Syntax Checker** application using **Terraform, AWS EC2,cloudwatch,RDS, Jenkins, and Docker**.
 
 ---
 
