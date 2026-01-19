@@ -35,7 +35,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 sh '''
-                docker rm -f $CONTAINER_NAME
+                docker rm -f $CONTAINER_NAME || true
                 docker run -d -p 3000:3000 --name $CONTAINER_NAME $IMAGE_NAME
                 '''
             }
