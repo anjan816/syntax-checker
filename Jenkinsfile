@@ -39,21 +39,23 @@ pipeline {
     agent any
 
     environment {
-        DB_HOST     = credentials('db-host')
-        DB_USER     = credentials('db-user')
-        DB_PASSWORD = credentials('db-password')
-        DB_NAME     = 'syntaxdb'
-    }
-    environment{
-        IMAGE_NAME = "syntax-checker"
-        CONTAINER_NAME = "syntax-checker-container"
+        // Database credentials
+        DB_HOST         = credentials('db-host')
+        DB_USER         = credentials('db-user')
+        DB_PASSWORD     = credentials('db-password')
+        DB_NAME         = 'syntaxdb'
+
+        // Docker configuration
+        IMAGE_NAME      = 'syntax-checker'
+        CONTAINER_NAME  = 'syntax-checker-container'
     }
 
     stages {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/<your-username>/syntax-checker.git'
+                git branch: 'main',
+                    url: 'https://github.com/anjan816/syntax-checker.git'
             }
         }
 
@@ -61,11 +63,7 @@ pipeline {
             steps {
                 sh '''
                 docker build \
-                --build-arg DB_HOST=$DB_HOST \
-                --build-arg DB_USER=$DB_USER \
-                --build-arg DB_PASSWORD=$DB_PASSWORD \
-                --build-arg DB_NAME=$DB_NAME \
-                -t $IMAGE_NAME .
+                  -t $IMAGE_NAME .
                 '''
             }
         }
@@ -74,12 +72,14 @@ pipeline {
             steps {
                 sh '''
                 docker rm -f $CONTAINER_NAME || true
+
                 docker run -d -p 3000:3000 \
-                -e DB_HOST=$DB_HOST \
-                -e DB_USER=$DB_USER \
-                -e DB_PASSWORD=$DB_PASSWORD \
-                -e DB_NAME=$DB_NAME \
-                $IMAGE_NAME
+                  --name $CONTAINER_NAME \
+                  -e DB_HOST=$DB_HOST \
+                  -e DB_USER=$DB_USER \
+                  -e DB_PASSWORD=$DB_PASSWORD \
+                  -e DB_NAME=$DB_NAME \
+                  $IMAGE_NAME
                 '''
             }
         }
