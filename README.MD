@@ -11,6 +11,11 @@ This project demonstrates how an application moves from **source code to a runni
 The primary focus of this project is **DevOps engineering**, including automation⚙️, containerization🐳, deployment🚀, and troubleshooting real-world issues.
 
 ---
+## **AWS ARCHITECTURE**
+<p align="center">
+  <img src="public/aws-architecture.jpeg" width="700"/>
+</p>
+---
 
 ## **🎯Project Objectives**
 
