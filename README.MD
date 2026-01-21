@@ -15,6 +15,7 @@ The primary focus of this project is **DevOps engineering**, including automatio
 <p align="center">
   <img src="public/aws-architecture.jpeg" width="700"/>
 </p>
+
 ---
 
 ## **🎯Project Objectives**
